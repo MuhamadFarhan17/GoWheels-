@@ -1,0 +1,715 @@
+:root {
+  --primary: #ffffff;
+  --bg: #010101;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 2rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url('../img/Background\ Home.png'); /* isi sesuai nama img: header-bg.jpeg */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 8%,
+    rgba(255, 255, 255, 0) 50%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 4em;
+  color: #ffffff;
+  text-shadow: 1 px 1px 3 px rgba(1, 1, 3, 0.5);
+  line-height: 1.2;
+}
+
+.hero .content span {
+  color: var(--primary);
+}
+
+.hero .content p {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  font-weight: 400;
+  text-shadow: 1 px 1px 3 px rgba(1, 1, 3, 0.5);
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: #ffffff;
+  background-color: #ff6b00;
+  border-radius: 0.5rem;
+  box-shadow: 1 px 1px 3 px rgba(1, 1, 3, 0.5);
+}
+
+/* About section */
+.about {
+  padding: 8rem 7% 1.4rem;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.about h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 0 0 auto;
+  width: 800px; /* ukuran kecil, bisa disesuaikan */
+  margin-right: 2rem; /* jarak dari teks di kanan */
+}
+
+.about .row .about-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .content p {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* media queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero .content h1 {
+    font-size: 3rem;
+  }
+
+  .hero .content p {
+    font-size: 1.6rem;
+  }
+
+  .hero .content .cta {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img {
+    width: 100%;
+    margin: 0 auto 2rem auto;
+  }
+
+  .about .row .content h3 {
+    font-size: 1.6rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+  .hero .content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .content p {
+    font-size: 1.3rem;
+  }
+
+  .hero .content .cta {
+    font-size: 1rem;
+    padding: 0.6rem 1.4rem;
+  }
+
+  .about h2 {
+    font-size: 2rem;
+  }
+
+  .about .row .content h3 {
+    font-size: 1.4rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Fleet Section */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000000;
+   height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.car-section {
+  padding: 8rem 5% 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.fleet h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  margin-top: 6rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.car-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.car-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 240px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background-color: #fff;
+  display: block;
+}
+
+/* Informasi mobil dan tombol */
+.car-card .car-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.car-card .car-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.car-card .car-info p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.car-card .car-info .cta {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #ff6b00;
+  color: #fff;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.car-card .car-info .cta:hover {
+  background-color: #e65c00;
+}
+
+.car-info {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.car-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.car-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.car-specs li {
+  margin-bottom: 0.3rem;
+}
+
+.car-price {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.rent-btn {
+  display: block;
+  margin: 0 auto 1rem auto;
+  background-color: #ff6b00;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;
+  transition: background-color 0.2s;
+}
+
+.rent-btn:hover {
+  background-color: #e65c00;
+}
+
+/* ✅ Responsive untuk layar kecil */
+@media (max-width: 768px) {
+  .car-section {
+    padding: 5rem 4% 1rem;
+  }
+
+  .car-card {
+    width: 90%;
+  }
+
+  .fleet h2 {
+    font-size: 2rem;
+  }
+}
+
+footer {
+  background-color: #ff6b00;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+footer .footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+footer .footer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+footer .footer-nav a:hover {
+  text-decoration: underline;
+}
+
+footer .footer-icons {
+  margin-bottom: 1rem;
+}
+
+footer .footer-icons i {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #000000;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 6rem;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+}
+
+.contact .row form .input-group i {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: #000; /* karena background putih */
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  font-size: 1.7rem;
+  border: none;
+  outline: none;
+  background: none;
+  color: #000; /* teks input jadi hitam agar terbaca */
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #ffffff;
+  background-color: #e65c00;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+  background-color: #ff6b00;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+footer .footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+footer .footer-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+footer .footer-nav a:hover {
+  text-decoration: underline;
+}
+
+footer .footer-icons {
+  margin-bottom: 1rem;
+}
+
+footer .footer-icons i {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer {
+  background-color: #e65c00;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: purple;
+  margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover {
+  color: #e65c00;
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: white;
+  font-weight: 700;
+}
+
+/* Modal Style */
+.modal {
+  display: none; /* default hidden */
+  position: fixed;
+  z-index: 10000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  animation: zoom 0.3s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.5)}
+  to {transform: scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.sosmed-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #1877f2; /* warna Facebook */
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    .sosmed-button:hover {
+      background-color: #145dbf;
+    }
+
+    .instagram {
+      color: purple; /* warna Instagram */
+    }
+
+    .instagram:hover {
+      background-color: purple;
+    }
+
+    /* Form Section */
+    .form-group-inline label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.form-group-inline input[type="radio"] {
+  margin: 0;
+}
+
+.form-group-inline {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+}
+
+    form {
+      background: #ffffff;
+      color: #000000;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: auto;
+      margin-top: 6rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group-inline {
+      display: flex;
+      gap: 1rem;
+    }
+    .form-group-inline div {
+      flex: 1;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    button {
+      background-color: #ff6b00;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #e65c00;
+    }
