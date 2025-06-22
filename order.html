@@ -1,310 +1,399 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Form Pemesanan Mobil</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pemesanan Mobil</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
 
-    <script src="https://unpkg.com/feather-icons"></script>
-
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .preview-hidden {
+        display: none;
+      }
+      .preview-img {
+        max-width: 100%;
+        max-height: 200px;
+        margin-top: 10px;
+        border-radius: 8px;
+      }
+      .car-preview-container {
+        text-align: center;
+        margin-top: 15px;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="navbar-logo"><span>Go</span>Wheels</a>
-
+      <a href="index.html" class="navbar-logo"><span>Go</span>Wheels</a>
       <div class="navbar-nav">
-        <a href="/index.html#hero">Home</a>
-        <a href="/index.html#about">Tentang Kami</a>
-        <a href="#fleet">Armada</a>
-        <a href="/contact.html">Kontak</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">Tentang Kami</a>
+        <a href="fleet.html">Armada</a>
+        <a href="contact.html">Kontak</a>
       </div>
     </nav>
+
     <form id="rentalForm">
-    <h2>Pemesanan Rental Mobil</h2>
+      <h2>Pemesanan Rental Mobil</h2>
 
-    <div class="form-group">
-      <label>Nama Penyewa</label>
-      <input type="text" name="nama" required>
-    </div>
-
-    <div class="form-group-inline">
-      <div>
-        <label>Tempat Lahir</label>
-        <input type="text" name="tempat_lahir" required>
+      <div class="form-group">
+        <label>Nama Penyewa</label>
+        <input type="text" name="nama" required />
       </div>
-      <div>
-        <label>Tanggal Lahir</label>
-        <input type="date" name="tanggal_lahir" required>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label>Jenis Kelamin</label>
-      <select name="jenis_kelamin" required>
-        <option value="">Pilih</option>
-        <option value="Laki-Laki">Laki-Laki</option>
-        <option value="Perempuan">Perempuan</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>No HP</label>
-      <input type="text" name="nomor_handphone" required>
-    </div>
-
-    <div class="form-group">
-      <label>Nomor Identitas (KTP/SIM)</label>
-      <input type="text" name="no_identitas" required>
-    </div>
-
-    <div class="form-group">
-      <label>Upload Foto KTP</label>
-      <input type="file" name="foto_ktp" id="fotoKTP" accept="image/*" required>
-      <img id="previewKTP" src="#" alt="Preview KTP" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
-    </div>
-
-    <div class="form-group">
-      <label>Upload Foto KK</label>
-      <input type="file" name="foto_kk" id="fotoKK" accept="image/*" required>
-      <img id="previewKK" src="#" alt="Preview KK" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
-    </div>
-
-    <div class="form-group">
-      <label>Upload Foto SIM</label>
-      <input type="file" name="foto_sim" id="fotoSIM" accept="image/*" required>
-      <img id="previewSIM" src="#" alt="Preview SIM" style="max-width: 100%; max-height: 200px; margin-top: 10px; display: none;">
-    </div>
-
-    <div class="form-group-inline">
-      <div>
-        <label>Tanggal Sewa</label>
-        <input type="date" id="tglSewa" required>
-      </div>
-      <div>
-        <label>Tanggal Selesai</label>
-        <input type="date" id="tglSelesai" required>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>No Kontak Darurat</label>
-      <input type="text" name="kontak_darurat" required>
-    </div>
-
-    <div class="form-group">
-      <label>Pilih Tipe Mobil</label>
-      <select id="tipeMobil" required>
-        <option value="">Pilih Mobil</option>
-        <option value="Avanza" data-harga="450000">Avanza - Rp450.000/hari</option>
-        <option value="Innova" data-harga="650000">Innova Reborn - Rp650.000/hari</option>
-        <option value="Xpander" data-harga="800000">Xpander Cross - Rp800.000/hari</option>
-        <option value="Sigra" data-harga="300000">Daihatsu Sigra - Rp300.000/hari</option>
-        <option value="HRV" data-harga="700000">Honda HR-V - Rp700.000/hari</option>
-      </select>
-      <div class="car-preview-container" style="text-align: center; margin-top: 15px;">
-          <img id="previewCar" src="#" alt="Preview Mobil" style="max-width: 100%; max-height: 250px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: none;">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Pilihan Sewa</label>
       <div class="form-group-inline">
-        <label>
-          <input type="radio" name="driverOption" value="lepas_kunci" checked required> Lepas Kunci
-        </label>
-        <label>
-          <input type="radio" name="driverOption" value="dengan_supir"> Dengan Supir (+Rp100.000/hari)
-        </label>
+        <div>
+          <label>Tempat Lahir</label>
+          <input type="text" name="tempat_lahir" required />
+        </div>
+        <div>
+          <label>Tanggal Lahir</label>
+          <input type="date" name="tanggal_lahir" required />
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label>Metode Pembayaran</label>
+
+      <div class="form-group">
+        <label>Jenis Kelamin</label>
+        <select name="jenis_kelamin" required>
+          <option value="">Pilih</option>
+          <option value="Laki-Laki">Laki-Laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>No HP</label>
+        <input
+          type="tel"
+          name="nomor_handphone"
+          pattern="[0-9]{10,13}"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Nomor Identitas (KTP/SIM)</label>
+        <input type="number" name="no_identitas" required />
+      </div>
+
+      <div class="form-group">
+        <label>Upload Foto KTP</label>
+        <input
+          type="file"
+          name="foto_ktp"
+          id="fotoKTP"
+          accept="image/*"
+          required
+        />
+        <img
+          id="previewKTP"
+          alt="Preview KTP"
+          class="preview-img preview-hidden"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Upload Foto KK</label>
+        <input
+          type="file"
+          name="foto_kk"
+          id="fotoKK"
+          accept="image/*"
+          required
+        />
+        <img
+          id="previewKK"
+          alt="Preview KK"
+          class="preview-img preview-hidden"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Upload Foto SIM</label>
+        <input
+          type="file"
+          name="foto_sim"
+          id="fotoSIM"
+          accept="image/*"
+          required
+        />
+        <img
+          id="previewSIM"
+          alt="Preview SIM"
+          class="preview-img preview-hidden"
+        />
+      </div>
+
       <div class="form-group-inline">
-        <label><input type="radio" name="pembayaran" value="Dana" required>
-          <img src="img/Dana.jpg" alt="Dana" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="ShopeePay">
-          <img src="img/Spay.png" alt="ShopeePay" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="GoPay">
-          <img src="img/Gopay.jpg" alt="GoPay" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="OVO">
-          <img src="img/OVO.jpg" alt="OVO" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="LinkAja">
-          <img src="img/LinkAja.png" alt="LinkAja" height="30">
-        </label>
+        <div>
+          <label>Tanggal Sewa</label>
+          <input type="date" id="tglSewa" required />
+        </div>
+        <div>
+          <label>Tanggal Selesai</label>
+          <input type="date" id="tglSelesai" required />
+        </div>
       </div>
 
-      <div class="form-group-inline" style="margin-top: 1rem;">
-        <label><input type="radio" name="pembayaran" value="BCA">
-          <img src="img/BCA.png" alt="BCA" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="BRI">
-          <img src="img/BRI.png" alt="BRI" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="BNI">
-          <img src="img/BNI.png" alt="BNI" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="Mandiri">
-          <img src="img/Mandiri.webp" alt="Mandiri" height="30">
-        </label>
-
-        <label><input type="radio" name="pembayaran" value="Bank Lainnya">
-          <span>Bank Lainnya</span>
-        </label>
+      <div class="form-group">
+        <label>No Kontak Darurat</label>
+        <input type="tel" name="kontak_darurat" required />
       </div>
-    </div>
-        
-    <div class="total">
-      Total Biaya: <span id="totalBiaya">Rp0</span>
-    </div>
 
-    <button type="submit">Pesan Sekarang</button>
-  </form>
+      <div class="form-group">
+        <label>Pilih Tipe Mobil</label>
+        <select id="tipeMobil" required>
+          <option value="">Pilih Mobil</option>
+          <option value="Avanza" data-harga="450000">
+            Avanza - Rp450.000/hari
+          </option>
+          <option value="Innova" data-harga="650000">
+            Innova Reborn - Rp650.000/hari
+          </option>
+          <option value="Xpander" data-harga="800000">
+            Xpander Cross - Rp800.000/hari
+          </option>
+          <option value="Sigra" data-harga="300000">
+            Daihatsu Sigra - Rp300.000/hari
+          </option>
+          <option value="HRV" data-harga="700000">
+            Honda HR-V - Rp700.000/hari
+          </option>
+        </select>
+        <div class="car-preview-container">
+          <img
+            id="previewCar"
+            class="preview-img preview-hidden"
+            alt="Preview Mobil"
+          />
+        </div>
+      </div>
 
-  <script>
-    // Object to map car values to their image paths based on your fleet data
-    const carImages = {
-      "Avanza": "img/Avanza.webp",
-      "Innova": "img/Inova reborn.jpg",
-      "Xpander": "img/Xpander Cross.jpg", // Corrected value to "Xpander"
-      "Sigra": "img/Daihatsu Sigra.png",
-      "HRV": "img/Honda HR-V.png"
-    };
+      <div class="form-group">
+        <label>Pilihan Sewa</label>
+        <div class="form-group-inline">
+          <label
+            ><input
+              type="radio"
+              name="driverOption"
+              value="lepas_kunci"
+              checked
+              required
+            />
+            Lepas Kunci</label
+          >
+          <label
+            ><input type="radio" name="driverOption" value="dengan_supir" />
+            Dengan Supir (+Rp100.000/hari)</label
+          >
+        </div>
+      </div>
 
-    // Define driver cost
-    const BIAYA_SUPIR_PER_HARI = 100000;
+      <div class="form-group">
+        <label>Metode Pembayaran</label>
+        <div class="form-group-inline">
+          <label
+            ><input type="radio" name="pembayaran" value="Dana" required />
+            <img src="img/Dana.jpg" alt="Logo Dana" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="ShopeePay" />
+            <img src="img/Spay.png" alt="Logo ShopeePay" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="GoPay" />
+            <img src="img/Gopay.jpg" alt="Logo GoPay" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="OVO" />
+            <img src="img/OVO.jpg" alt="Logo OVO" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="LinkAja" />
+            <img src="img/LinkAja.png" alt="Logo LinkAja" height="30"
+          /></label>
+        </div>
+        <div class="form-group-inline" style="margin-top: 1rem">
+          <label
+            ><input type="radio" name="pembayaran" value="BCA" />
+            <img src="img/BCA.png" alt="Logo BCA" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="BRI" />
+            <img src="img/BRI.png" alt="Logo BRI" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="BNI" />
+            <img src="img/BNI.png" alt="Logo BNI" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="Mandiri" />
+            <img src="img/Mandiri.webp" alt="Logo Mandiri" height="30"
+          /></label>
+          <label
+            ><input type="radio" name="pembayaran" value="Bank Lainnya" />
+            <span>Bank Lainnya</span></label
+          >
+        </div>
+      </div>
 
-    function hitungBiaya() {
-      const selectedOption = document.querySelector('#tipeMobil option:checked');
-      const hargaMobilPerHari = parseInt(selectedOption ? selectedOption.dataset.harga : 0);
-      const tglSewa = new Date(document.getElementById("tglSewa").value);
-      const tglSelesai = new Date(document.getElementById("tglSelesai").value);
-      
-      // Get driver option
-      const driverOption = document.querySelector('input[name="driverOption"]:checked').value;
+      <div class="total">Total Biaya: <span id="totalBiaya">Rp0</span></div>
+      <button type="submit">Pesan Sekarang</button>
+    </form>
 
-      let total = 0;
-      let selisihHari = 0;
+    <footer>
+      <div class="socials">
+        <a href="#"><i data-feather="instagram"></i></a>
+        <a href="#"><i data-feather="twitter"></i></a>
+        <a href="#"><i data-feather="facebook"></i></a>
+      </div>
 
-      if (!isNaN(tglSewa) && !isNaN(tglSelesai) && tglSelesai >= tglSewa && hargaMobilPerHari > 0) {
-        selisihHari = Math.ceil((tglSelesai - tglSewa) / (1000 * 60 * 60 * 24)) + 1;
-        total = hargaMobilPerHari * selisihHari;
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">Tentang Kami</a>
+        <a href="fleet.html">Armada</a>
+        <a href="contact.html">Kontak</a>
+      </div>
 
-        // Add driver cost if "dengan_supir" is selected
-        if (driverOption === "dengan_supir") {
-          total += BIAYA_SUPIR_PER_HARI * selisihHari;
-        }
-      } 
-      document.getElementById("totalBiaya").textContent = `Rp${total.toLocaleString("id-ID")}`;
+      <div class="credit">
+        <p>
+          Created by <a href="#">Nurafiq Hidayat - Muhamad Farhan</a>. | &copy;
+          2025.
+        </p>
+      </div>
+    </footer>
 
-      // Display car image preview based on selection
-      const carValue = selectedOption ? selectedOption.value : "";
-      const previewCar = document.getElementById("previewCar");
-
-      if (carValue && carImages[carValue]) {
-        previewCar.src = carImages[carValue];
-        previewCar.style.display = 'block'; // Show the image
-      } else {
-        previewCar.src = '#';
-        previewCar.style.display = 'none'; // Hide if no car selected or image not found
-      }
-    }
-
-    document.getElementById("tglSewa").addEventListener("change", hitungBiaya);
-    document.getElementById("tglSelesai").addEventListener("change", hitungBiaya);
-    document.getElementById("tipeMobil").addEventListener("change", hitungBiaya);
-    // NEW: Add event listeners for driver option
-    document.querySelectorAll('input[name="driverOption"]').forEach(radio => {
-      radio.addEventListener("change", hitungBiaya);
-    });
-    // END NEW
-
-    function previewImage(input, previewId) {
-      const preview = document.getElementById(previewId);
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          preview.src = e.target.result;
-          preview.style.display = 'block';
-        };
-        reader.readAsDataURL(input.files[0]);
-      } else {
-        preview.src = '#';
-        preview.style.display = 'none';
-      }
-    }
-
-    document.getElementById("fotoKTP").addEventListener("change", function() {
-      previewImage(this, "previewKTP");
-    });
-
-    document.getElementById("fotoKK").addEventListener("change", function() {
-      previewImage(this, "previewKK");
-    });
-
-    document.getElementById("fotoSIM").addEventListener("change", function() {
-      previewImage(this, "previewSIM");
-    });
-
-    // Event Listener for form submission (pesan "Pesanan Diterima")
-    document.getElementById("rentalForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Mencegah form untuk refresh halaman
-
-      if (this.checkValidity()) {
-        alert("Pesanan Diterima! Tim kami akan segera menghubungi Anda.");
-        this.reset(); // Mengatur ulang form
-        // Sembunyikan kembali preview gambar KTP, KK, SIM, dan Mobil setelah reset
-        document.getElementById("previewKTP").style.display = 'none';
-        document.getElementById("previewKK").style.display = 'none';
-        document.getElementById("previewSIM").style.display = 'none'; // NEW: Hide SIM preview
-        document.getElementById("previewCar").style.display = 'none'; 
-        document.getElementById("totalBiaya").textContent = "Rp0"; // Reset total biaya
-        // NEW: Reset driver option to default "lepas_kunci"
-        document.querySelector('input[name="driverOption"][value="lepas_kunci"]').checked = true;
-      } else {
-        // Browser's default validation messages will appear
-      }
-    });
-  </script>
-
-<footer>
-    <div class="socials">
-      <a href="#"><i data-feather="instagram"></i></a>
-      <a href="#"><i data-feather="twitter"></i></a>
-      <a href="#"><i data-feather="facebook"></i></a>
-    </div>
-
-    <div class="links">
-      <a href="/index.html">Home</a>
-      <a href="/index.html#about">Tentang Kami</a>
-      <a href="/fleet.html">Armada</a>
-      <a href="/contact.html">Kontak</a>
-    </div>
-
-    <div class="credit">
-      <p>Created by <a href="">Nurafiq Hidayat - Muhamad Farhan</a>. | &copy; 2025.</p>
-    </div>
-  </footer>
-  <script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
       feather.replace();
+
+      const carImages = {
+        Avanza: 'img/Avanza.webp',
+        Innova: 'img/Inova reborn.jpg',
+        Xpander: 'img/Xpander Cross.jpg',
+        Sigra: 'img/Daihatsu Sigra.png',
+        HRV: 'img/Honda HR-V.png',
+      };
+
+      const BIAYA_SUPIR_PER_HARI = 100000;
+
+      function hitungBiaya() {
+        const selectedOption = document.querySelector(
+          '#tipeMobil option:checked'
+        );
+        const hargaMobilPerHari = parseInt(
+          selectedOption ? selectedOption.dataset.harga : 0
+        );
+        const tglSewa = new Date(document.getElementById('tglSewa').value);
+        const tglSelesai = new Date(
+          document.getElementById('tglSelesai').value
+        );
+        const driverOption = document.querySelector(
+          'input[name="driverOption"]:checked'
+        ).value;
+
+        let total = 0;
+
+        if (
+          !isNaN(tglSewa) &&
+          !isNaN(tglSelesai) &&
+          tglSelesai >= tglSewa &&
+          hargaMobilPerHari > 0
+        ) {
+          const selisihHari =
+            Math.ceil((tglSelesai - tglSewa) / (1000 * 60 * 60 * 24)) + 1;
+          total = hargaMobilPerHari * selisihHari;
+
+          if (driverOption === 'dengan_supir') {
+            total += BIAYA_SUPIR_PER_HARI * selisihHari;
+          }
+        }
+
+        document.getElementById(
+          'totalBiaya'
+        ).textContent = `Rp${total.toLocaleString('id-ID')}`;
+
+        const carValue = selectedOption ? selectedOption.value : '';
+        const previewCar = document.getElementById('previewCar');
+
+        if (carValue && carImages[carValue]) {
+          previewCar.src = carImages[carValue];
+          previewCar.classList.remove('preview-hidden');
+        } else {
+          previewCar.classList.add('preview-hidden');
+        }
+      }
+
+      function setTodayMinDate() {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('tglSewa').setAttribute('min', today);
+      }
+
+      function previewImage(input, previewId) {
+        const preview = document.getElementById(previewId);
+        if (input.files && input.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.classList.remove('preview-hidden');
+          };
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          preview.classList.add('preview-hidden');
+        }
+      }
+
+      document
+        .getElementById('fotoKTP')
+        .addEventListener('change', () => previewImage(fotoKTP, 'previewKTP'));
+      document
+        .getElementById('fotoKK')
+        .addEventListener('change', () => previewImage(fotoKK, 'previewKK'));
+      document
+        .getElementById('fotoSIM')
+        .addEventListener('change', () => previewImage(fotoSIM, 'previewSIM'));
+
+      document
+        .getElementById('tglSewa')
+        .addEventListener('change', hitungBiaya);
+      document
+        .getElementById('tglSelesai')
+        .addEventListener('change', hitungBiaya);
+      document
+        .getElementById('tipeMobil')
+        .addEventListener('change', hitungBiaya);
+      document
+        .querySelectorAll('input[name="driverOption"]')
+        .forEach((radio) => radio.addEventListener('change', hitungBiaya));
+
+      document
+        .getElementById('rentalForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (this.checkValidity()) {
+            alert('Pesanan Diterima! Tim kami akan segera menghubungi Anda.');
+            this.reset();
+            ['previewKTP', 'previewKK', 'previewSIM', 'previewCar'].forEach(
+              (id) => {
+                document.getElementById(id).classList.add('preview-hidden');
+              }
+            );
+            document.getElementById('totalBiaya').textContent = 'Rp0';
+            document.querySelector(
+              'input[name="driverOption"][value="lepas_kunci"]'
+            ).checked = true;
+            hitungBiaya();
+          }
+        });
+
+      setTodayMinDate();
     </script>
-</body>
+  </body>
 </html>
